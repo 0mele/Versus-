@@ -1,0 +1,234 @@
+config-version: 1.0
+
+
+# $$$$$$\ $$\   $$\ $$$$$$$$\  $$$$$$\
+# \_$$  _|$$$\  $$ |$$  _____|$$  __$$\
+#   $$ |  $$$$\ $$ |$$ |      $$ /  $$ |
+#   $$ |  $$ $$\$$ |$$$$$\    $$ |  $$ |
+#   $$ |  $$ \$$$$ |$$  __|   $$ |  $$ |
+#   $$ |  $$ |\$$$ |$$ |      $$ |  $$ |
+# $$$$$$\ $$ | \$$ |$$ |       $$$$$$  |
+# \______|\__|  \__|\__|       \______/
+#
+#-----------------------------------------------------------------------------------------------------------------------------
+#                                                  | MUSIC OPTIONS: |
+#-----------------------------------------------------------------------------------------------------------------------------
+# creative, credits, disc_5, disc_11, disc_13, disc_blocks, disc_cat, disc_chirp, disc_creator,
+# disc_creator_music_box, disc_far, disc_mall, disc_mellohi, disc_otherside, disc_pigstep, disc_precipice, disc_relic,
+# disc_stal, disc_strad, disc_wait, disc_ward
+# WARNING: Certain songs are only available in specific versions!!!
+#-----------------------------------------------------------------------------------------------------------------------------
+#                                                  | COLOR OPTIONS: |
+#-----------------------------------------------------------------------------------------------------------------------------
+# aqua, black, blue, gray, green, lime, orange, purple, red, silver, teal, white, and yellow.
+
+
+
+
+
+
+#  _____  _____  _____  _____  _____  _____  __
+#|   __||   __||   | ||   __|| __  ||  _  ||  |
+#|  |  ||   __|| | | ||   __||    -||     ||  |__
+#|_____||_____||_|___||_____||__|__||__|__||_____|
+
+#Options for general plugin messages.
+messages-general:
+  #How admin commands and messages will be displayed.
+  admin:
+    #Enables or disables the prefix for admin messages.
+    prefix_enabled: false
+    prefix: "&7[&6Versus&7] "
+    #Sets the primary color for admin messages
+    primary_color: "&6"
+    #Sets the color for text meant to disappear into the background like confirmation messages.
+    subtle_color: "&7"
+    #Sets the color for text highlighting key terms like player names.
+    highlighted_color: "&c"
+    #Sets the color for important text, like buttons or headings.
+    bold_color: "&6&l"
+    #Sets the styling for line elements in all chat messages.
+    line: "&6&m-------------------------------------"
+  #How errors will be displayed stylistically.
+  errors:
+    #Sets the text and color proceeding error messages in chat.
+    error_prefix: "&cError: &4"
+    no_permission_message: "You do not have access to that command."
+    only_players_message: "Only players can use this command!"
+
+
+#  ____   _____  _____  __     _  _____  _____
+#|    \ |  |  ||   __||  |   |_||   | ||   __|
+#|  |  ||  |  ||   __||  |__ | || | | ||  |  |
+#|____/ |_____||_____||_____||_||_|___||_____|
+
+#Options for dueling behavior, messages, and timings.
+dueling:
+  mechanics:
+    #Sets whether the 'versus.spectate' and 'versus.duel' permissions are required to spectate and duel.
+    #If false, any player will be able to duel.
+    permission_required_to_duel: false
+
+    #Sets where winners return to after a duel.
+    #Options include: 'spectate' , 'spawn' , 'previous', and 'custom'.
+    #Typing anything else will default to 'spawn'.
+    #'spectate' returns winners to the spectator area.
+    #'spawn' returns winners to their spawnpoint.
+    #'previous' returns winners to their previous location.
+    #'custom' returns winners to a custom location, configured in the section below.
+    return_winners: 'spectate'
+    #This setting only takes effect if 'return_winners' is set to 'custom'.
+    winner_return_location:
+      x: 0
+      y: 0
+      z: 0
+      world: "world"
+
+
+    #Sets where losers return to after a duel.
+    #Options include: 'spectate' , 'spawn' , and 'previous', and 'custom'.
+    #Typing anything else will default to 'spawn'.
+    #'spectate' returns losers to the spectator area.
+    #'spawn' returns losers to their spawnpoint.
+    #'previous' returns losers to their previous location.
+    #'custom' returns winners to a custom location, configured in the section below.
+    return_losers: 'spawn'
+    #This setting only takes effect if 'return_losers' is set to 'custom'.
+    loser_return_location:
+      x: 0
+      y: 0
+      z: 0
+      world: "world"
+
+
+
+    #Sets whether players respawn instantly after losing a duel, skipping the respawn screen.
+    instant_respawn: false
+
+    #enable or disable placing blocks while in a duel.
+    allow_block_placements: true
+    #enable or disable destroying blocks while in a duel.
+    allow_block_destruction: true
+    #Sets the duration of the countdown before a duel.
+    countdown_duration: 5
+    #List of the commands that will be blocked during a duel.
+    blocked_commands:
+      - 'heal'
+      - 'gamemode'
+      - 'spawn'
+      - 'kit'
+      - 'tp'
+      - 'tpa'
+      - 'tpyes'
+      - 'tpaccept'
+      - 'tpahere'
+      - 'etpa'
+      - 'back'
+      - 'eback'
+      - 'return'
+      - 'ereturn'
+      - 'sethome'
+      - 'esethome'
+      - 'createhome'
+      - 'ecreatehome'
+      - 'espawn'
+      - 'chest'
+      - 'vault'
+      - 'enderchest'
+
+  #Options for potion effects, firework effects activated during a duel.
+  announcements:
+    #Sets whether duels are announced in global chat.
+    announce_duels: false
+    #The text that announces that a duel has started.
+    #Place the text a player clicks to spectate the duel, in between %button% and %button%.
+    duel_start_announcement: "&c%player_one%&6 is dueling &c%player_two%&6! %button%&6&lSpectate here.%button%"
+    #The text that announces that a duel has ended and who won/loss.
+    duel_end_announcement: "&6Congratulate &c%winner%&6! They just won a match against &c%loser%&6!"
+  effects:
+    #enable or disable blindness when entering a duel.
+    blindness_effects_enabled: true
+    #enable or disable the effects played after a duel victory.
+    victory_effects_enabled: true
+    #Sets the duration (in seconds) of the effects played after a duel victory.
+    victory_effects_duration: 10
+    #Enable or disable all firework effects during a duel.
+    fireworks_enabled: true
+    #Sets the color for fireworks during a duel. Look at the top of this config file for color options.
+    fireworks_color: "blue"
+  #Options for music played during a duel.
+  music:
+    #enable or disable music during a duel.
+    fight_music_enabled: true
+    #Sets the music that plays during the duel. Look at the top of this config file for music options.
+    fight_music: 'disc_far'
+    #enable or disable music playing after a player wins a duel.
+    victory_music_enabled: true
+    victory_music: 'disc_pigstep'
+  #Options for char messages and titles (on-screen text) displayed during a duel.
+  messages:
+    #The text that appears on a player's screen during the duel countdown.
+    countdown_title: "&7%seconds%"
+    #The chat message sent to each pkayer in chat during the duel countdown.
+    countdown_message: "&6Starting in &e%seconds%&6 seconds"
+    #The text that appears on a player's screen when a duel starts.
+    duel_go_message: "&6&lGO!"
+    #The text that appears on a player's screen after winning a duel.
+    victory_title_message: "&6&lVICTORY"
+    #The subtitle for the text that appears on a player's screen after winning a duel.
+    victory_subtitle_message: "%player%"
+    #The chat message a player recieves when respawning after losing a duel.
+    duel_loss_message: "&6Don't worry about it &c%player%."
+    #The chat message sent to a spectator after entering an arena.
+    duel_spectate_message: "&7You are now spectating a duel between &6%player_one% &7and &6%player_two%&7."
+
+
+#  _____  _____  _____  _____  _____  _____  _____  _  _____  _____
+#| __  ||   __||     ||  |  ||   __||   __||_   _||_||   | ||   __|
+#|    -||   __||  |  ||  |  ||   __||__   |  | |  | || | | ||  |  |
+#|__|__||_____||__  _||_____||_____||_____|  |_|  |_||_|___||_____|
+#                 |__|
+
+#Options for duel requesting chat messages and styling.
+requesting:
+  mechanics:
+    #Sets whether players can request to duel someone by shift-clicking on their player character.
+    shift_click_requesting_enabled: false
+  messages:
+    #The chat message sent to a player after choosing to deny a request to duel.
+    denied_request_confirmation: "&7You denied &c%player%'s&6 duel request&7."
+    #The chat message sent to a player after someone else denies their request to duel.
+    denied_request: "&c%player% &7has denied your &6duel request&7."
+    #The chat message sent to a player after sending a request to duel.
+    sent_request: "&7You just sent a &cduel request&7 to &6%player%."
+    #The chat message sent to a player after recieving a request to duel.
+    request_notification: "&6%player% &7has invited you to a &cduel!"
+    #Sets the styling for the text a player clicks to accept a duel request.
+    accept_button: "&7&l[&a&lACCEPT&7&l]"
+    #Sets the styling for the text a player clicks to deny a duel request.
+    deny_button: "&7&l[&c&lDENY&7&l]"
+    #The chat message sent to a player when no arenas are available.
+    no_arenas_available: "&6You've been placed in a queue. Please wait until an arena is available."
+    #The chat message sent to a player after cancelling a queue to duel.
+    cancel_request: "&6You're no longer queueing for a duel."
+
+
+
+#  ____  _____ _____ _____ _____ ____  _____ _____ _____ _____ _____ _____
+#|    \|   __|  _  |   __|   | |    \|   __|   | |     |     |   __|   __|
+#|  |  |   __|   __|   __| | | |  |  |   __| | | |   --|-   -|   __|__   |
+#|____/|_____|__|  |_____|_|___|____/|_____|_|___|_____|_____|_____|_____|
+
+#(OPTIONAL)
+#Options for dependencies and interacting with other plugins or API's.
+dependencies:
+  placeholderAPI:
+    #NOTE: This feature only functions if:
+    #1) Essentials and PlaceholderAPI are both installed.
+    #2) Essentials has been reigstered by PlaceholderAPI by typing /papi ecloud download Essentials.
+    #Otherwise, this feature will be ignored and player names will remain unchanged.
+    #Sets whether essentials nicknames replace player names in Versus chat messages.
+    essentials_nicknames_enabled: true
+  itemsadder:
+    #Sets whether custom ItemsAdder items can be saved to kits.
+    items_adder_for_kits: true
